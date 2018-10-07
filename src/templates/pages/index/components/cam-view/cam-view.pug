@@ -1,0 +1,19 @@
+.camera-view
+	.camera-view__stream
+		.camera-view__wrapper
+			.camera-view__current-view
+		.camera-view__mini-map
+	.camera-view__controls
+		input(type="range").camera-view__brightness-control
+
+		.camera-view__zoom-container
+			span.camera-view__label Масштаб:
+
+			.camera-view__zoom-values
+				span.camera-view__current-value 1
+				| :
+				span.camera-view__default-value 1
+
+		.camera-view__brightness-container
+			.camera-view__label Яркость:
+			.camera-view__brightness-value 100%

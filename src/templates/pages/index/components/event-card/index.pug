@@ -1,0 +1,9 @@
+include blocks/__aditional
+include blocks/__content
+include blocks/__actions
+
+mixin event-card(event)
+	div(class=`event-card event-card--${event.size} event-card--${event.type}`)
+		+event-card__content(event)
+		+event-card__additional(event)
+		+event-card__actions

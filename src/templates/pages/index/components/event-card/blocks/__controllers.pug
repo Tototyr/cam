@@ -1,0 +1,9 @@
+mixin event-card__controllers(data)
+	ul.controller-list
+		each button, index in data.buttons
+			if (index === 0)
+				li.controller-list__item
+					button.btn.btn--company= button
+			else
+				li.controller-list__item
+					button.btn.btn--default= button

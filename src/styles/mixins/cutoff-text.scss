@@ -1,0 +1,9 @@
+@mixin cutoff-text($lines-count: 2, $line-height: 1.4em) {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $lines-count;
+	line-height: $line-height;
+	max-height: $line-height * $lines-count;
+}

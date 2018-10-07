@@ -1,0 +1,79 @@
+@import "../theme/colors";
+
+body {
+	grid-template-rows: 1fr auto;
+}
+
+.footer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	
+	padding: 22px 40px;
+	flex-shrink: 0;
+	
+	&__navigation-list {
+		display: flex;
+		flex-direction: row;
+	}
+	
+	&__navigation-item {
+		margin-right: 14px;
+		
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	
+	&__navigation-link {
+		font-size: 12px;
+		
+		color: map_get($colors, second-text-color);
+		transition: color .3s;
+		text-decoration: none;
+		
+		&:hover {
+			color: map_get($colors, main-text-color);
+		}
+		
+		&:focus {
+			text-decoration: none;
+		}
+	}
+	
+	&__copyright {
+		font-size: 12px;
+		
+		color: map_get($colors, second-text-color);
+		margin-left: auto;
+	}
+}
+
+@media (max-width: 500px) {
+	.footer {
+		flex-flow: column nowrap;
+		align-items: flex-start;
+		
+		padding: 25px;
+		
+		&__navigation {
+			flex-flow: column nowrap;
+		}
+		
+		&__navigation-list {
+			flex-flow: column nowrap;
+			margin-bottom: 10px;
+		}
+		
+		&__navigation-item {
+			width: 100%;
+			
+			margin-right: 0;
+			margin-bottom: 5px;
+		}
+		
+		&__copyright {
+			margin: 0;
+		}
+	}
+}

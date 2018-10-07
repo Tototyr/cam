@@ -1,0 +1,14 @@
+@mixin condition-state($bcg, $isFocus: true) {
+	
+	@if ($isFocus) {
+		&:hover, &:focus {
+			outline: none;
+			background-color: darken($bcg, 10%);
+		}
+	} @else {
+		&:hover {
+			outline: none;
+			background-color: darken($bcg, 10%);
+		}
+	}
+}

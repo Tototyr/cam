@@ -1,0 +1,19 @@
+@import "../theme/colors";
+@import "./components/event-list/event-list";
+@import "./components/event-card/event-card";
+
+.smart-home {
+	display: flex;
+	flex-flow: column nowrap;
+	
+	width: auto;
+	padding: 30px 40px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@media (max-width: 425px) {
+	.smart-home {
+		padding: 15px;
+	}
+}

@@ -1,0 +1,8 @@
+@import "../../../../mixins/calc-font-size";
+
+@mixin event-card--l($el) {
+	
+	#{$el}__desc {
+		@include fluid-type(18px, 24px);
+	}
+}

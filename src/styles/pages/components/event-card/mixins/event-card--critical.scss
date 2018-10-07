@@ -1,0 +1,21 @@
+@import "../../../../mixins/background-image";
+
+@mixin event-card--critical($el) {
+	
+	#{$el}__additional {
+		background: map_get($colors, gray);
+		color: map_get($colors, dark);
+		
+		padding: 20px;
+		border-radius: 20px;
+		box-shadow: 0 0 0 1px map_get($colors, gray);
+		
+		margin-left: -20px;
+		margin-right: -20px;
+		margin-bottom: -20px;
+	}
+	
+	#{$el}__action--remove {
+		@include background-image('cross-white', 10px 12px);
+	}
+}

@@ -1,0 +1,22 @@
+include __thermal
+include __graph
+include __controllers
+include __player
+include __image
+include __desc
+
+mixin event-card__additional(event)
+	if (event.description || event.data)
+		.event-card__additional
+			if (event.description)
+				+event-card__desc(event)
+			if (event.data && event.icon === 'thermal')
+				+event-card__thermal(event.data)
+			if (event.data && event.icon === 'stats')
+				+event-card__graph(event.data)
+			if (event.data && event.icon === 'cam')
+				+event-card__image(event.data)
+			if (event.data && event.icon === 'fridge')
+				+event-card__controllers(event.data)
+			if (event.data && event.icon === 'music')
+				+event-card__audio-player(event.data)

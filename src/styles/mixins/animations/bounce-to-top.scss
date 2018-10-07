@@ -1,0 +1,17 @@
+@mixin bounce-to-top($startPos: 50px, $endPos: -150px, $isHide: false) {
+	animation: bounceToTop .3s ease-in;
+	animation-fill-mode: forwards;
+	
+	@keyframes bounceToTop {
+		from {
+			top: $startPos;
+		}
+		to {
+			top: $endPos;
+			
+			@if ($isHide) {
+				display: none;
+			}
+		}
+	}
+}

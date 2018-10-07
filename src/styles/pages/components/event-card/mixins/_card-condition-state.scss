@@ -1,0 +1,13 @@
+@import "../../../../mixins/box-shadow";
+
+// TODO: подумать нужен ли действительно?
+@mixin card-condition-state($bcg, $isShadow: true) {
+	
+	&:hover {
+		background-color: $bcg;
+		
+		@if ($isShadow) {
+			@include box-shadow();
+		}
+	}
+}

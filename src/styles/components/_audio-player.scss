@@ -1,0 +1,135 @@
+@import "../theme/colors";
+@import "../mixins/condition-state";
+@import "../mixins/background-image";
+@import "../mixins/range-bar";
+@import "../mixins/calc-font-size";
+@import "../mixins/cutoff-text";
+
+.audio-player {
+	display: flex;
+	flex-flow: column nowrap;
+	
+	&__info {
+		display: flex;
+		flex-flow: row nowrap;
+		margin-bottom: 20px;
+	}
+	
+	&__album-cover {
+		width: 50px;
+		height: 50px;
+		border-radius: 5px;
+		margin-right: 15px;
+	}
+	
+	&__track {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: space-between;
+		width: 100%;
+	}
+	
+	&__track-about {
+		display: flex;
+		flex-flow: row wrap;
+		
+		margin: 0;
+		@include fluid-type(18px, 20px);
+		@include cutoff-text(1);
+	}
+	
+	&__track-state {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		width: 100%;
+	}
+	
+	&__track-artist {
+		padding-right: 5px;
+	}
+	
+	&__track-name {
+		padding-left: 5px;
+	}
+	
+	&__track-length {
+		width: 100%;
+		margin: 0;
+		
+		$track-color: #979797;
+		$track-height: 1px;
+		$track-radius: 0;
+		$thumb-color: #D8D8D8;
+		$thumb-height: 20px;
+		$thumb-width: 10px;
+		$thumb-radius: 3px;
+		
+		@include range(
+				$track-color, $track-height, $track-radius,
+				$thumb-color, $thumb-height, $thumb-width, $thumb-radius
+		);
+	}
+	
+	&__controllers {
+		display: flex;
+		flex-flow: row nowrap;
+	}
+	
+	&__knobs {
+		display: flex;
+		flex-flow: row nowrap;
+		
+		margin-right: 10px;
+	}
+	
+	&__knob {
+		height: 50px;
+		width: 50px;
+		
+		border: none;
+		border-radius: 50%;
+		
+		margin-right: 30px;
+		transition: background-color .3s;
+		cursor: pointer;
+		
+		&:last-child {
+			margin-right: 0;
+		}
+		
+		&--prev {
+			@include background-image('knob');
+		}
+		
+		&--next {
+			@include background-image('knob');
+			transform: scaleX(-1);
+		}
+		
+		@include condition-state(map_get($colors, light-gray));
+	}
+	
+	&__current-value {
+		padding-left: 15px;
+		color: map_get($colors, dark);
+	}
+	
+	&__volume {
+		width: 100%;
+		margin: 0;
+		
+		$track-color: #d7d7d7;
+		$track-height: 3px;
+		$track-radius: 2px;
+		$thumb-color: #605757;
+		$thumb-height: 15px;
+		$thumb-width: 15px;
+		$thumb-radius: 50%;
+		
+		@include range(
+				$track-color, $track-height, $track-radius,
+				$thumb-color, $thumb-height, $thumb-width, $thumb-radius
+		);
+	}
+}

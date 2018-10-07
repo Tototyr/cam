@@ -1,0 +1,6 @@
+include ../event-card/index
+
+ul.events-list
+	each event in events
+		li.events-list__event(class=`events-list__event--${event.size}`)
+			+event-card(event)

@@ -1,0 +1,89 @@
+@import "../theme/colors";
+@import "../mixins/animations/bounce-from-top";
+@import "../mixins/animations/bounce-to-top";
+
+.navigation {
+	
+	&__list {
+		display: flex;
+		flex-direction: row;
+	}
+	
+	&__item {
+		margin-right: 28px;
+		
+		color: map_get($colors, main-text-color);
+		transition: opacity .3s;
+		opacity: .6;
+		
+		&:hover {
+			opacity: 1;
+		}
+		
+		&:last-child {
+			margin-right: 0;
+		}
+		
+		&--active {
+			opacity: 1;
+		}
+	}
+	
+	&__link {
+		font-weight: bold;
+		font-size: 16px;
+		
+		display: block;
+		width: 100%;
+		
+		color: inherit;
+		text-decoration: none;
+	}
+}
+
+@media (max-width: 500px) {
+	.navigation {
+		display: none;
+		
+		width: auto;
+		height: auto;
+		
+		padding: 25px;
+		
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		z-index: 999;
+		
+		background: map_get($colors, light-color);
+		
+		&--mobile-on {
+			display: block;
+			@include bounce-from-top(-150px, 50px);
+		}
+		
+		&--mobile-off {
+			display: block;
+			@include bounce-to-top(50px, -150px);
+		}
+		
+		&--disable {
+			display: none;
+		}
+		
+		&__list {
+			display: flex;
+			flex-flow: column nowrap;
+		}
+		
+		&__item {
+			margin-right: 0;
+			margin-bottom: 15px;
+			
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

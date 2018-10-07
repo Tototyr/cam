@@ -1,0 +1,62 @@
+@import "../theme/colors";
+@import "../mixins/background-image";
+@import "../mixins/condition-state";
+@import "../mixins/calc-font-size";
+
+.btn {
+	@include fluid-type(20px, 20px);
+	font-weight: bold;
+	color: map_get($colors, dark);
+	border: none;
+	padding: 15px 50px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: .3s background-color;
+	
+	&--company {
+		background: map_get($colors, company-color);
+		@include condition-state(map_get($colors, company-color));
+	}
+	
+	&--default {
+		background: map_get($colors, light-gray);
+		@include condition-state(map_get($colors, light-gray));
+	}
+}
+
+.mobile-toggle {
+	
+	&--navigation {
+		display: none;
+		
+		height: 16px;
+		width: 16px;
+		
+		margin-left: auto;
+		border: none;
+		cursor: pointer;
+		
+		@include background-image('icon_list_m');
+	}
+}
+
+@media (max-width: 500px) {
+	.mobile-toggle {
+		
+		&--navigation {
+			display: block;
+		}
+	}
+}
+
+@media (max-width: 375px) {
+	.btn {
+		padding: 10px 50px;
+	}
+}
+
+@media (max-width: 320px) {
+	.btn {
+		padding: 10px 35px;
+	}
+}

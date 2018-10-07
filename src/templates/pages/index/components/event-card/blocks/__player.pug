@@ -1,0 +1,21 @@
+mixin event-card__audio-player(data)
+	.audio-player
+		.audio-player__info
+			img(src= data.albumcover).audio-player__album-cover
+
+			.audio-player__track
+				span.audio-player__track-about #{data.artist} – #{data.track.name}
+				.audio-player__track-state
+					input(type="range" min="0" max="100" value= parseFloat(data.track.length)).audio-player__track-length
+					span.audio-player__current-value= data.track.length
+
+		.audio-player__controllers
+			.audio-player__knobs
+				button.audio-player__knob.audio-player__knob--prev
+				button.audio-player__knob.audio-player__knob--next
+			.audio-player__track-state
+				input(type="range" min="0" max="100" value= data.volume).audio-player__volume
+				span.audio-player__current-value #{data.volume}%
+
+
+

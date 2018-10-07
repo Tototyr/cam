@@ -1,0 +1,5 @@
+mixin event-card__content(event)
+	img(src=`../assets/${event.icon}.svg`).event-card__icon
+	span.event-card__title= event.title
+	span.event-card__source= event.source
+	span.event-card__time= event.time

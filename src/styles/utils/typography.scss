@@ -1,0 +1,13 @@
+@import "../theme/colors";
+@import "../mixins/calc-font-size";
+
+.title {
+	color: map_get($colors, main-text-color);
+	
+	&--xl {
+		@include fluid-type(24px, 36px);
+		
+		margin-top: 0;
+		margin-bottom: 30px;
+	}
+}

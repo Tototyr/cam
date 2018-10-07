@@ -1,0 +1,94 @@
+@mixin range($track-color, $track-height, $track-radius, $thumb-color, $thumb-height, $thumb-width, $thumb-radius) {
+	
+	/* Hide defaults */
+	&[type="range"] {
+		-webkit-appearance: none;
+		width: 100%;
+		background: transparent;
+	}
+	
+	&[type="range"]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+	}
+	
+	&[type="range"]:focus {
+		outline: none;
+	}
+	
+	&[type="range"]::-ms-track {
+		width: 100%;
+		cursor: pointer;
+		
+		background: transparent;
+		border-color: transparent;
+		color: transparent;
+	}
+	
+	/* Thumb */
+	&[type="range"]::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		border: none;
+		height: $thumb-height;
+		width: $thumb-width;
+		border-radius: $thumb-radius;
+		background: $thumb-color;
+		cursor: pointer;
+		margin-top: -(($thumb-height / 2) - ($track-height / 2));
+	}
+	
+	&[type="range"]::-moz-range-thumb {
+		border: none;
+		height: $thumb-height;
+		width: $thumb-width;
+		border-radius: $thumb-radius;
+		background: $thumb-color;
+		cursor: pointer;
+	}
+	
+	&[type="range"]::-ms-thumb {
+		border: none;
+		height: $thumb-height;
+		width: $thumb-width;
+		border-radius: $thumb-radius;
+		background: $thumb-color;
+		cursor: pointer;
+	}
+	
+	/* Track */
+	&[type="range"]::-webkit-slider-runnable-track {
+		width: 100%;
+		height: $track-height;
+		background: #E6E6E6;
+		border-radius: $track-radius;
+	}
+	
+	&[type="range"]::-moz-range-track {
+		width: 100%;
+		height: $track-height;
+		cursor: pointer;
+		background: #E6E6E6;
+		border-radius: $track-radius;
+	}
+	
+	&[type="range"]::-ms-track {
+		width: 100%;
+		height: $track-height;
+		cursor: pointer;
+		background: transparent;
+		border-color: transparent;
+		border-width: 16px 0;
+		color: transparent;
+		border-radius: $track-radius;
+	}
+	
+	&[type="range"]::-ms-fill-lower {
+		background: #E6E6E6;
+		border-radius: $track-radius;
+	}
+	
+	&[type="range"]::-ms-fill-upper {
+		background: #E6E6E6;
+		border-radius: $track-radius;
+	}
+	
+}

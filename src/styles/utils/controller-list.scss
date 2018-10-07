@@ -1,0 +1,24 @@
+@import "../theme/colors";
+
+.controller-list {
+	display: flex;
+	flex-flow: row wrap;
+	
+	&__item {
+		margin-right: 20px;
+		
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+@media (max-width: 425px) {
+	.controller-list {
+		justify-content: space-between;
+		
+		&__item {
+			margin-right: 0;
+		}
+	}
+}
