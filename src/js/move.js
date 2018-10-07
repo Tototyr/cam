@@ -8,6 +8,8 @@ export const moveEvent = (element) => {
 	element.classList.add('inactive');
 	
 	element.addEventListener('pointerdown', (event) => {
+		element.setPointerCapture(event.pointerId);
+		
 		element.classList.remove('inactive');
 		element.classList.add('active');
 	});
