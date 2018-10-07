@@ -31,7 +31,6 @@ export const pinchEvent = (requestedElement) => {
 			if (prevDiff > 0) {
 				if (curDiff > prevDiff) {
 					ev.target.style.transform = `scale(1.7)`;
-					ev.target.style.transition = 'transform .7s';
 					ev.target.classList.add('pinchActive');
 				}
 				
