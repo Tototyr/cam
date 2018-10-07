@@ -7,7 +7,7 @@ export const rotationMode  = (requestedElement) => {
 		'pointerLockElement' in document ||
 		'mozPointerLockElement' in document ||
 		'webkitPointerLockElement' in document;
-
+	
 	requestedElement.requestPointerLock =
 		requestedElement.requestPointerLock || requestedElement.mozRequestPointerLock || requestedElement.webkitRequestPointerLock;
 	
@@ -16,8 +16,8 @@ export const rotationMode  = (requestedElement) => {
 	
 	const isLocked = () => {
 		return requestedElement === document.pointerLockElement ||
-					 requestedElement === document.mozPointerLockElement ||
-					 requestedElement === document.webkitPointerLockElement;
+			requestedElement === document.mozPointerLockElement ||
+			requestedElement === document.webkitPointerLockElement;
 	};
 	
 	requestedElement.addEventListener('dblclick', () => {
@@ -32,18 +32,14 @@ export const rotationMode  = (requestedElement) => {
 		if (isLocked()) {
 			document.addEventListener("pointermove", moveX, false);
 			document.body.classList.add('locked');
-			
 			requestedElement.style.backgroundRepeat = 'repeat-x';
-			
-			checkBcgImage();
 		} else {
 			document.removeEventListener("pointermove", moveX, false);
 			document.body.classList.remove('locked');
-			
 			requestedElement.style.backgroundRepeat = 'no-repeat';
-			
-			checkBcgImage();
 		}
+		
+		checkBcgImage();
 	};
 	
 	const checkBcgImage = () => {

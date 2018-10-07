@@ -1,27 +1,41 @@
 import {moveX} from "./utils";
+import {getBcgImage} from "./utils";
+import {getBcgPos} from "./utils";
 
 export const moveEvent = (element) => {
-	if (element.classList.contains('pinchActive')) {
-		return;
-	}
-	
+	element.style.transition = 'none';
 	element.classList.add('inactive');
 	
 	element.addEventListener('pointerdown', (event) => {
 		element.setPointerCapture(event.pointerId);
-		
-		element.classList.remove('inactive');
 		element.classList.add('active');
 	});
 	
 	element.addEventListener('pointerup', () => {
 		element.classList.remove('active');
-		element.classList.add('inactive');
+		
+		alignImage();
 	});
 	
 	element.addEventListener('pointermove', (event) => {
 		if (element.classList.contains('active')) {
-			moveX(event);
+			moveX(event, true);
 		}
 	});
+	
+	const alignImage = () => {
+		const bgPos = getBcgPos(element);
+		const bgImage = getBcgImage(element);
+		const maxWidth = bgImage.width - element.offsetWidth;
+		
+		if (bgPos.x > 0) {
+			element.style.transition = 'background-position .7s';
+			element.style.backgroundPosition = 0;
+		}
+		
+		if (Math.abs(bgPos.x) > maxWidth) {
+			element.style.transition = 'background-position .7s';
+			element.style.backgroundPosition = -maxWidth;
+		}
+	};
 };
