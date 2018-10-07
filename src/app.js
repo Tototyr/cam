@@ -1,5 +1,5 @@
 import "./styles/index.scss";
 
 // Scripts
-import "./js/camera-view";
 require('./polyfill/pep');
+import "./js/camera-view";
