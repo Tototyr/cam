@@ -4,7 +4,6 @@ import {getBcgPos} from "./utils";
 
 export const moveEvent = (element) => {
 	element.style.transition = 'none';
-	element.classList.add('inactive');
 	
 	element.addEventListener('pointerdown', (event) => {
 		element.setPointerCapture(event.pointerId);

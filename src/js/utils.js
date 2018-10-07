@@ -22,7 +22,7 @@ export const moveX = (event, isInversion = false) => {
  */
 export const getBcgPos = (element) => {
 	const pos = window.getComputedStyle(element)
-		.getPropertyValue('background-position').split(' ').map((v) => parseInt(v, 10));
+										.getPropertyValue('background-position').split(' ').map((v) => parseInt(v, 10));
 	
 	return {
 		x: pos[0],
