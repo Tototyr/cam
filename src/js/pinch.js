@@ -1,15 +1,15 @@
 export const pinchEvent = (requestedElement) => {
 	
 	const init = () => {
-		requestedElement.addEventListener('onpointerdown', pointerdown_handler);
-		requestedElement.addEventListener('onpointermove', pointermove_handler);
-		requestedElement.addEventListener('onpointerup', pointerup_handler);
-		requestedElement.addEventListener('onpointercancel', pointerup_handler);
-		requestedElement.addEventListener('onpointerout', pointerup_handler);
-		requestedElement.addEventListener('onpointerleave', pointerup_handler);
+		requestedElement.onpointerdown = pointerdown_handler;
+		requestedElement.onpointermove = pointermove_handler;
+		requestedElement.onpointerup = pointerup_handler;
+		requestedElement.onpointercancel = pointerup_handler;
+		requestedElement.onpointerout = pointerup_handler;
+		requestedElement.onpointerleave = pointerup_handler;
 	};
 	
-	let evCache = [];
+	let evCache = new Array();
 	let prevDiff = -1;
 	
 	const pointerdown_handler = (event) => {
@@ -31,7 +31,7 @@ export const pinchEvent = (requestedElement) => {
 			if (prevDiff > 0) {
 				if (curDiff > prevDiff) {
 					ev.target.style.transform = `scale(1.7)`;
-					ev.target.style.transition = 'transform 2s';
+					ev.target.style.transition = 'transform .7s';
 					ev.target.classList.add('pinchActive');
 				}
 				
